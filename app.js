@@ -15,11 +15,18 @@ const productRoutes = require('./routes/product');
 const braintreeRoutes = require('./routes/braintree')
 const orderRoutes  = require('./routes/order');
 
-const corsOptions ={
-    origin:'http://localhost:3000', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
+const corsOpts = {
+    origin: '*',
+  
+    methods: [
+      'GET',
+      'POST',
+    ],
+  
+    allowedHeaders: [
+      'Content-Type',
+    ],
+  };
 
 //app;
 const app = express();
@@ -38,7 +45,7 @@ app.use(morgan('dev'));
 app.use(bodyparser.json());
 app.use(cookieparser());
 app.use(expressValidator());
-app.use(cors(corsOptions));
+app.use(cors(corsOpts));
 // Routes middleware
 app.use(authRoutes);
 app.use(userRoutes);
