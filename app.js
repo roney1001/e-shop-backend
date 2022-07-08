@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const authRoutes = require('./routes/auth');
+
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const cookieparser = require('cookie-parser');
@@ -8,6 +8,7 @@ const cors = require('cors'); // this will use for middle wear
 const expressValidator = require('express-validator');
 const dotenv = require("dotenv");
 dotenv.config();
+const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 const categoryRoutes = require('./routes/category');
 const productRoutes = require('./routes/product');
