@@ -22,7 +22,7 @@ const app = express();
 
 // database
 
-mongoose.connect(process.env.URL,{
+mongoose.connect('mongodb+srv://roney1001:ab123456@eshopdb.vkggytz.mongodb.net/?retryWrites=true&w=majority',{
     useNewUrlParser:true,
     useUnifiedTopology:true
 } ,()=>{
