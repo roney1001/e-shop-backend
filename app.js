@@ -45,7 +45,12 @@ app.use(morgan('dev'));
 app.use(bodyparser.json());
 app.use(cookieparser());
 app.use(expressValidator());
-
+app.use(cors());
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+ })
 // Routes middleware
 app.use(authRoutes);
 app.use(userRoutes);
@@ -53,12 +58,8 @@ app.use(categoryRoutes);
 app.use(productRoutes);
 app.use(braintreeRoutes);
 app.use(orderRoutes);
-app.use(cors());
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
- })
+
+
 
 
 const port  = process.env.PORT || 8000 ;
