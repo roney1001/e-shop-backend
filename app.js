@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const cookieparser = require('cookie-parser');
-const cors = require('cors'); // this will use for middle wear
+ const cors  = require('cors')// this will use for middle wear
 const expressValidator = require('express-validator');
 const dotenv = require("dotenv");
 dotenv.config();
@@ -15,18 +15,18 @@ const productRoutes = require('./routes/product');
 const braintreeRoutes = require('./routes/braintree')
 const orderRoutes  = require('./routes/order');
 
-const corsOpts = {
-    origin: '*',
+// const corsOpts = {
+//     origin: '*',
   
-    methods: [
-      'GET',
-      'POST',
-    ],
+//     methods: [
+//       'GET',
+//       'POST',
+//     ],
   
-    allowedHeaders: [
-      'Content-Type',
-    ],
-  };
+//     allowedHeaders: [
+//       'Content-Type',
+//     ],
+//   };
 
 //app;
 const app = express();
@@ -45,7 +45,7 @@ app.use(morgan('dev'));
 app.use(bodyparser.json());
 app.use(cookieparser());
 app.use(expressValidator());
-app.use(cors(corsOpts));
+
 // Routes middleware
 app.use(authRoutes);
 app.use(userRoutes);
@@ -53,6 +53,7 @@ app.use(categoryRoutes);
 app.use(productRoutes);
 app.use(braintreeRoutes);
 app.use(orderRoutes);
+app.use(cors());
 
 
 const port  = process.env.PORT || 8000 ;
