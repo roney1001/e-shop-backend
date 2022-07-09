@@ -33,7 +33,7 @@ const app = express();
 
 // database
 
-mongoose.connect('mongodb+srv://roney1001:ab123456@eshopdb.vkggytz.mongodb.net/?retryWrites=true&w=majority',{
+mongoose.connect(process.env.URL,{
     useNewUrlParser:true,
     useUnifiedTopology:true
 } ,()=>{

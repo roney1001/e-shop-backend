@@ -55,7 +55,7 @@ exports.signout = (req,res)=>{
 };
 
 exports.requireSignin = jwt({
-    secret: 'sdbhjsgds',
+    secret: process.env.JWT_SECRET,
     algorithms: ["HS256"], // added later
     userProperty: "auth",
   });
