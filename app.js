@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const cookieparser = require('cookie-parser');
- const cors  = require('cors')// this will use for middle wear
+//  const cors  = require('cors')// this will use for middle wear
 const expressValidator = require('express-validator');
 const dotenv = require("dotenv");
 dotenv.config();
@@ -53,7 +53,7 @@ app.use(categoryRoutes);
 app.use(productRoutes);
 app.use(braintreeRoutes);
 app.use(orderRoutes);
-app.use(cors());
+// app.use(cors());
 
 
 const port  = process.env.PORT || 8000 ;
